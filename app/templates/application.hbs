@@ -1,7 +1,27 @@
-{{page-title "EmberTestAppEmberDataModelFragments"}}
+<button type="button" {{on "click" this.reloadModel}}>Reload model</button>
+<hr>
+<h3>Current model</h3>
+Tags:
+<ul>
+  {{#each this.model.tags as |tag|}}
+    <li>{{tag.name}}</li>
+  {{/each}}
+</ul>
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<p>
+  <small>From <i>"this.model.tags"</i></small>
+</p>
 
-{{outlet}}
+<hr>
+
+<h3>Looking on internal props</h3>
+Tags:
+<ul>
+  {{#each this.internalTags as |tag|}}
+    <li>{{tag.__data.name}}</li>
+  {{/each}}
+</ul>
+
+<p>
+  <small>From <i>"this.model.currentState.recordData.__fragmentData.tags"</i></small>
+</p>
